@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <title>Javascript Exercises</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 50px;
+        background-color: #fff;
+        border-radius: 1em;
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        body {
+            background-color: #fff;
+        }
+        div {
+            width: auto;
+            margin: 0 auto;
+            border-radius: 0;
+            padding: 1em;
+        }
+    }
+    
+        #box{
+            width:200px;
+            height:200px;
+/*            margin:0 auto;*/
+            background-color:azure;
+            position:relative;
+            
+            .bold{
+                font-weight: bold;
+            }
+        }
+    </style>   
+</head>
+
+<body>
+    <h1>Test your reactions!</h1>
+    <p>Click on the box or circle as quickly as you can.</p>
+    <p class="bold">Your Time: <span id="time">0</span>s</p>
+    <div id="box"></div>
+    
+    
+    <script type="text/javascript">
+        var clickedTime; var createdTime; var reactionTime;
+        Date.now()
+        
+    function getRandomColor(){
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i=0; i<6; i++){
+            color += letters[Math.round(Math.random() *15)];
+        }
+        return color;
+    }    
+    
+    function makeBox(){
+        createdTime=Date.now();
+        var time=Math.random();
+        time = time * 3000;
+        setTimeout(function(){
+           if (Math.random() >0.5){
+               document.getElementById("box").style.borderRadius="300px";
+           } else {
+                document.getElementById("box").style.borderRadius="0";
+           }
+           var top=Math.random();
+            top=top*300;
+            var left=Math.random();
+            left=left*500;
+            document.getElementById("box").style.top=top+"px";
+            document.getElementById("box").style.left=left+"px";
+            document.getElementById("box").style.backgroundColor=getRandomColor(); document.getElementById("box").style.display="block";
+            createdTime=Date.now();
+     }, time);
+    }
+     
+     document.getElementById("box").onclick=function(){
+         clickedTime = Date.now();
+         reactionTime = (clickedTime - createdTime)/1000;
+         document.getElementById("time").innerHTML=reactionTime;
+         this.style.display="none";
+         makeBox();
+     }
+     makeBox();
+     
+    </script>
+</body>
+</html>

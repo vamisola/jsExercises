@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <title>Example Domain</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        
+    }
+    div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 50px;
+        background-color: #fff;
+        border-radius: 1em;
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        body {
+            background-color: #fff;
+        }
+        div {
+            width: auto;
+            margin: 0 auto;
+            border-radius: 0;
+            padding: 1em;
+        }
+    }
+    </style>   
+    
+    
+</head>
+
+<body>
+    <button id="textChanger">Change first div</button>
+    <div id="firstDiv">This is some text...</div>
+    <button id="textAppender">Append some text</button>
+    <div id="secondDiv">Javascript is...</div>
+    <button id="textCreator">Create some text</button>
+    <div id="emptyDiv"></div>
+   <script type="text/javascript">
+        //This is a comment
+    document.getElementById("textChanger").onclick = function(){
+        document.getElementById("firstDiv").innerHTML = "This is Awesome";
+    };
+    document.getElementById("textAppender").onclick = function(){
+        document.getElementById("secondDiv").innerHTML += "great!";
+    };
+       document.getElementById("textCreator").onclick = function(){
+        document.getElementById("emptyDiv").innerHTML = "<ul><li>Cat</li><li>Dog</li</ul";
+    };
+    </script>
+</body>
+</html>
